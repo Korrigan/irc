@@ -4,25 +4,18 @@
 
 #include "message.h"
 
-static const t_cmd_converter	converter[] =
-  {
-    {USER, "USER"},
-    {NICK, "NICK"},
-    {PASS, "PASS"}
-  };
-
 int		parse_command(t_message *msg, char **str)
 {
   unsigned	i;
   unsigned	len;
 
   i = 0;
-  while (i < (sizeof(converter) / sizeof(*converter)))
+  while (i < (sizeof(cmd_converter) / sizeof(*cmd_converter)))
     {
-      len = strlen(converter[i].string);
-      if (!strncmp(*str, converter[i].string, len))
+      len = strlen(cmd_converter[i].string);
+      if (!strncmp(*str, cmd_converter[i].string, len))
 	{
-	  msg->command = converter[i].cmd;
+	  msg->command = cmd_converter[i].cmd;
 	  *str += len;
 	  if (**str == ' ')
 	    (*str)++;

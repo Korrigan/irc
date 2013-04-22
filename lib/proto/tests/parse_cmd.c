@@ -20,5 +20,7 @@ int main(int ac, char **av)
   printf("params:\n");
   for (p = msg.params; *p; p++)
     printf("\t%s\n", *p);
+  printf("Recomposing command string:\n");
+  printf("%s\n", get_string_from_message(&msg));
   return (0);
 }

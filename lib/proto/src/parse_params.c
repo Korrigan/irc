@@ -38,10 +38,10 @@ static	char *parse_param(char **str)
     s++;
   if (*s != ' ' && *s)
     return (NULL);
-  if (*s == ' ')
-    s++;
   if (!(ret = strndup(*str, s - *str)))
     return (NULL);
+  if (*s == ' ')
+    s++;
   *str = s;
   return (ret);
 }
@@ -80,9 +80,7 @@ int	parse_params(t_message *msg, char **str)
     return (1);
   i = 0;
   while ((s = parse_param(str)))
-    {
-      p[i++] = s;
-    }
+    p[i++] = s;
   if ((s = parse_last_param(str)))
     p[i++] = s;
   p[i] = NULL;
