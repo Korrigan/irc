@@ -2,6 +2,8 @@
 #ifndef MESSAGE_H_
 # define MESSAGE_H_
 
+# include <stdarg.h>
+
 # define VALID_SPECIAL		".@!_-[]{}\\`^"
 # define INVALID_MIDDLE		"\r\n "
 
@@ -175,6 +177,8 @@ typedef struct {
   char		*prefix;
   char		**params;
 }		t_message;
+
+t_message	*new_message(t_command cmd, char *prefix, int np, ...);
 
 int		parse_message(t_message *ret, const char *msg);
 
