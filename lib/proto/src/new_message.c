@@ -4,7 +4,7 @@
 
 #include "message.h"
 
-t_message	*new_mesasge(t_command cmd, char *prefix, int np, ...)
+t_message	*new_message(t_command cmd, char *prefix, int np, ...)
 {
   t_message	*msg;
   va_list	ap;
